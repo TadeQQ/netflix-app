@@ -1,7 +1,7 @@
 import React from "react";
 import { searchMedia, MediaList } from "../utils/api";
 import { useEffect, useState } from "react";
-export const Search = () => {
+export const SearchFilms: React.FC = () => {
   const searchFilms = async () => {
     // const search = await searchMedia(value);
   };

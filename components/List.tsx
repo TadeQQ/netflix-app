@@ -2,7 +2,7 @@ import React from "react";
 import { fetchMediaList, MediaList } from "../utils/api";
 import { useEffect, useState } from "react";
 
-export const List = () => {
+export const List: React.FC = () => {
   const [films, setFilms] = useState<MediaList[]>([]);
   const [page, setPage] = useState(1);
 
