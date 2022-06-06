@@ -40,7 +40,6 @@ export function searchMedia(query: string): Promise<MediaList[]> {
     if (Math.random() < errorPossibility) {
       reject(new Error("Network error"));
     }
-
     setTimeout(() => {
       resolve(
         mediaList.filter((item) =>
