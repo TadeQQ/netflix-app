@@ -1,7 +1,8 @@
-import type { NextPage } from "next";
-import { List } from "../components/List";
+import { PageWithLayout } from "../types/PageWithLayout";
+import { getBaseLayout } from "../components/Layout/BaseLayout";
+import { List } from "../components/list/list/List";
 import Link from "next/link";
-const Home: NextPage = () => {
+const Home: PageWithLayout = () => {
   return (
     <div>
       <div>
@@ -15,5 +16,7 @@ const Home: NextPage = () => {
     </div>
   );
 };
+
+Home.getLayout = getBaseLayout;
 
 export default Home;

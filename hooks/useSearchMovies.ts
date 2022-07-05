@@ -1,27 +1,41 @@
 import { searchMedia, MediaList } from "../utils/api";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { sort } from "../utils/sort";
 import { debounce } from "ts-debounce";
-export const useSearchMovies = (i: string) => {
+import { ResponseHandler } from "../types/ResponseHandler";
+interface UseSearchMoviesProps extends ResponseHandler<MediaList[]> {
+  query: string;
+}
+
+export const useSearchMovies = ({
+  query,
+  onError,
+  onSuccess,
+}: UseSearchMoviesProps) => {
   const [media, setMedia] = useState<MediaList[]>([]);
   const getData = async () => {
-    const search = await searchMedia(i);
-    setMedia(sort(search));
+    try {
+      const search = await searchMedia(query);
+      setMedia(search);
+      onSuccess?.(search);
+    } catch (err) {
+      onError?.(err as Error);
+    }
   };
 
-  const debouncedGetData = debounce(getData, 2000);
+  const debouncedGetData = debounce(getData, 500);
 
   useEffect(() => {
-    if (i.length > 2) {
+    if (query.length > 2) {
       getData();
     }
-    if (i.length > 4) {
+    if (query.length > 3) {
       debouncedGetData();
     }
-    if (i.length < 3) {
+    if (query.length < 3) {
       setMedia([]);
     }
-  }, [i]);
+  }, [query]);
 
   return media;
 };

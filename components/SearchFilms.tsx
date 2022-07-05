@@ -3,17 +3,18 @@ import { useState } from "react";
 import { useSearchMovies } from "../hooks/useSearchMovies";
 
 export const SearchFilms: React.FC = () => {
-  const [input, setInput] = useState("");
-  const media = useSearchMovies(input);
+  const [query, setQuery] = useState("");
+  const media = useSearchMovies({ query });
+
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setInput(e.target.value);
+    setQuery(e.target.value);
   };
   return (
     <div>
       <input
         type="text"
         placeholder="search film"
-        value={input}
+        value={query}
         onChange={handleChange}
       />
       <div>
