@@ -1,7 +1,7 @@
 import React from "react";
 import { MediaList } from "../../../utils/api";
 import { useFavorites } from "../../../hooks/useFavorites";
-import test from "../../../public/unnamed.png";
+import test from "../../../public/ben-redblock-loading.gif";
 import Image from "next/image";
 import Link from "next/link";
 import { Routes } from "../../../routes/Routes";
@@ -12,7 +12,6 @@ interface MediaElementProps {
 
 export const MediaElement = ({ film }: MediaElementProps) => {
   const { favorites, toggleFavorites } = useFavorites();
-
   const isFav = favorites.includes(film.id);
   const handleError: React.ReactEventHandler<HTMLImageElement> = (e) => {
     e.currentTarget.onerror = null;
@@ -23,11 +22,10 @@ export const MediaElement = ({ film }: MediaElementProps) => {
   return (
     <div>
       <Link href={Routes.VIDEO_PLAYER(film.id)}>
-        {/* <Image src={test} alt="test" width="200px" height="200px"></Image> */}
         <Image
           src={film.posterUrl || test}
-          alt="poster"
-          width="200px"
+          alt={film.title}
+          width="230px"
           height="200px"
         ></Image>
       </Link>
@@ -36,6 +34,9 @@ export const MediaElement = ({ film }: MediaElementProps) => {
           onClick={() => toggleFavorites(film.id)}
           style={{
             color: isFav ? "green" : "red",
+            fontSize: "20px",
+            backgroundColor: "black",
+            border: "none",
           }}
         >
           {isFav ? "★" : "☆"}

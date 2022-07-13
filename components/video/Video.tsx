@@ -68,7 +68,7 @@ export const Video = () => {
           {/* <source src={String(video?.url)} type="video/mp4" /> */}
         </video>
       </div>
-      <button onClick={() => playerRef.current?.pause()}>asd</button>
+      {/* <button onClick={() => playerRef.current. }>asd</button> */}
     </>
   );
 };

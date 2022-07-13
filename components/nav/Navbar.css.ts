@@ -7,10 +7,9 @@ export const root = style({
 
 export const search = style({
   paddingTop: "20px",
-
   paddingRight: "20px",
 });
 
 export const icon = style({
-  fontSize: "15px",
+  fontSize: "17px",
 });

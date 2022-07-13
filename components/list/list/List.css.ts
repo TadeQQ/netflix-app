@@ -4,7 +4,7 @@ export const root = style({
   display: "flex",
   flexWrap: "wrap",
   justifyContent: "space-around",
-  gap: "10px",
+  gap: "50px",
 });
 
 export const card = style({});

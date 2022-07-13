@@ -17,7 +17,7 @@ export const Navbar = () => {
       <div className={search}>
         <SearchIcon className={icon} />
         <Link href="/search">
-          <a> Search film</a>
+          <a style={{ fontSize: "17px" }}> Search film</a>
         </Link>
       </div>
     </nav>
