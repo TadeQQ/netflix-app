@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { MediaList } from "../../../utils/api";
 import { useFavorites } from "../../../hooks/useFavorites";
-import test from "../../../public/ben-redblock-loading.gif";
+import test from "../../../public/unnamed.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Routes } from "../../../routes/Routes";
-
+import { variants, root, styling } from "./MediaElement.css";
 interface MediaElementProps {
   film: MediaList;
 }
@@ -13,35 +13,33 @@ interface MediaElementProps {
 export const MediaElement = ({ film }: MediaElementProps) => {
   const { favorites, toggleFavorites } = useFavorites();
   const isFav = favorites.includes(film.id);
+  const [src, setSrc] = useState(film.posterUrl);
   const handleError: React.ReactEventHandler<HTMLImageElement> = (e) => {
-    e.currentTarget.onerror = null;
-    e.currentTarget.src =
-      "https://images.unsplash.com/photo-1572700432881-42c60fe8c869?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80";
+    setSrc(
+      "https://hubertkajdan.com/wp-content/uploads/2019/06/2019-06-20-Jezioro-Lednickie-010-Pano-1024x663.jpg"
+    );
   };
 
   return (
-    <div>
+    <div className={root}>
       <Link href={Routes.VIDEO_PLAYER(film.id)}>
         <Image
-          src={film.posterUrl || test}
+          src={src || test}
           alt={film.title}
-          width="230px"
-          height="200px"
+          width={250}
+          height={400}
+          layout="fixed"
+          onError={handleError}
+          placeholder="blur"
+          blurDataURL={`${test}`}
         ></Image>
       </Link>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <button
-          onClick={() => toggleFavorites(film.id)}
-          style={{
-            color: isFav ? "green" : "red",
-            fontSize: "20px",
-            backgroundColor: "black",
-            border: "none",
-          }}
-        >
-          {isFav ? "★" : "☆"}
-        </button>
-      </div>
+      <button
+        onClick={() => toggleFavorites(film.id)}
+        className={isFav ? variants.fav : variants.base}
+      >
+        {isFav ? "★" : "☆"}
+      </button>
     </div>
   );
 };

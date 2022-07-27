@@ -60,3 +60,14 @@ export function fetchVideoById(id: number): Promise<MediaList> {
     }, Math.floor(Math.random() * maxRequestTimeout) * 1000);
   });
 }
+
+export function fetchGenres(genre: [string]): Promise<MediaList> {
+  return new Promise((resolve, reject) => {
+    if (Math.random() < errorPossibility) {
+      reject(new Error("Network error"));
+    }
+    setTimeout(() => {
+      resolve(mediaList.filter((item) => item.genres === genre)[0]);
+    }, Math.floor(Math.random() * maxRequestTimeout) * 1000);
+  });
+}

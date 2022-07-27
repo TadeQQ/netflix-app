@@ -10,6 +10,7 @@ const nextConfig = {
       "ia.media-imdb.com",
       "cph-p2p-msl.akamaized.net",
       "unsplash.com",
+      "hubertkajdan.com",
     ],
   },
 };

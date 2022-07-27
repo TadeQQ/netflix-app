@@ -1,0 +1,13 @@
+/* .backgroud {
+  background: url(../public/images/audi_r8_v10_plus_4k-HD.jpg) bottom;
+  background-attachment: fixed;
+  background-size: 2400px 1400px; */
+/* } */
+.card {
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
