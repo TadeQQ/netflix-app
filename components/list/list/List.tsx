@@ -10,14 +10,12 @@ export const List = () => {
   });
   return (
     <div className={root}>
-      {/* <GridLayout>
+      <GridLayout>
         {films.map((film) => (
           <MediaElement key={film.id} film={film} />
         ))}
-      </GridLayout> */}
-      {films.map((film) => (
-        <GenresList key={film.id} film={film} />
-      ))}
+      </GridLayout>
+
       <button onClick={loadMore}>load 10 more </button>
     </div>
   );
