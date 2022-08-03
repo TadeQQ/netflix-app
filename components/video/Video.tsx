@@ -28,6 +28,7 @@ export const Video = () => {
           responsive: true,
           fluid: true,
           poster: video?.posterUrl,
+
           sources: [
             {
               src: String(video?.url),
@@ -39,6 +40,11 @@ export const Video = () => {
           // onReady && onReady(player);
         }
       ));
+      //  } else {
+      //   const player = playerRef.current
+      //   player?.autoplay()
+
+      // }
     }
 
     // You could update an existing player in the `else` block here

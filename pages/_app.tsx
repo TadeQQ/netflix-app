@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { PageWithLayout } from "../types/PageWithLayout";
 import { themeClass } from "../theme/theme.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "swiper/css/bundle";
 
 const queryClient = new QueryClient();
 

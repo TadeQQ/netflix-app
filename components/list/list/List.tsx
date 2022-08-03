@@ -1,9 +1,8 @@
 import React from "react";
 import { useFetchMedia } from "../../../hooks/useFetchMedia";
 import { MediaElement } from "../mediaElement/MediaElement";
-import { root, card } from "./List.css";
+import { root } from "./ListByGenres.css";
 import { GridLayout } from "../../Layout/GridLayout";
-import { GenresList } from "./GenresList";
 export const List = () => {
   const { films, loadMore } = useFetchMedia({
     onError: () => {},

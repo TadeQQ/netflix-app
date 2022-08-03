@@ -5,7 +5,7 @@ import test from "../../../public/unnamed.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Routes } from "../../../routes/Routes";
-import { variants, root, styling } from "./MediaElement.css";
+import { variants, root } from "./MediaElement.css";
 interface MediaElementProps {
   film: MediaList;
 }
@@ -21,13 +21,13 @@ export const MediaElement = ({ film }: MediaElementProps) => {
   };
 
   return (
-    <div className={root}>
+    <>
       <Link href={Routes.VIDEO_PLAYER(film.id)}>
         <Image
           src={src || test}
           alt={film.title}
-          width={250}
-          height={400}
+          width={150}
+          height={200}
           layout="fixed"
           onError={handleError}
           placeholder="blur"
@@ -40,6 +40,6 @@ export const MediaElement = ({ film }: MediaElementProps) => {
       >
         {isFav ? "★" : "☆"}
       </button>
-    </div>
+    </>
   );
 };

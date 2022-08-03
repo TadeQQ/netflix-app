@@ -65,7 +65,27 @@ export function fetchVideoById(id: number): Promise<MediaList> {
 
 export enum Genres {
   ACTION = "Action",
+  ADVENTURE = "Adventure",
+  ANIMATION = "Animation",
+  BIOGRAPHY = "Biography",
+  COMEDY = "Comedy",
+  CRIME = "Crime",
+  DRAMA = "Drama",
+  FAMILY = "Family",
+  FANTASY = "Fantasy",
+  FILMNOIR = "Film-Noir",
+  HISTORY = "History",
+  HORROR = "Horror",
   MUSIC = "Music",
+  MUSICAL = "Musical",
+  MYSTERY = "Mystery",
+  ROMANCE = "Romance",
+  SCIFI = "Sci-Fi",
+  SPORT = "Sport",
+  THRILLER = "Thriller",
+  WAR = "War",
+  WESTERN = "Western",
+  POPULAR = "Popular",
 }
 
 export function fetchGenres(genre: Genres): Promise<MediaList[]> {
